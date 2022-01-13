@@ -46,3 +46,30 @@ def test_problem011():
 
 def test_problem012():
     assert problem012.problem012() == 76576500
+
+def test_problem013():
+    assert problem013.problem013() == 5537376230
+
+def test_problem014():
+    assert problem014.problem014() == 837799
+
+def test_problem015():
+    assert problem015.problem015() == 137846528820
+
+def test_problem016():
+    assert problem016.problem016() == 1366
+
+def test_problem017():
+    assert problem017.problem017() == 21124
+
+def test_problem018():
+    assert problem018.problem018() == 1074
+
+def test_problem019():
+    assert problem019.problem019() == 171
+
+def test_problem020():
+    assert problem020.problem020() == 648
+
+def test_problem021():
+    assert problem021.problem021() == 31626

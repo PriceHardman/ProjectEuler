@@ -49,3 +49,14 @@ def test_prime_factorization_by_trial_division():
     assert primes.prime_factorization_by_trial_division(50) == {2: 1, 5: 2}
     assert primes.prime_factorization_by_trial_division(99) == {3: 2, 11: 1}
     assert primes.prime_factorization_by_trial_division(100) == {2: 2, 5: 2}
+
+
+def test_divisors():
+    # Useful: https://en.wikipedia.org/wiki/Table_of_divisors
+    assert primes.divisors(1) == [1]
+    assert primes.divisors(6) == [1, 2, 3, 6]
+    assert primes.divisors(17) == [1, 17]
+    assert primes.divisors(60) == [1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60]
+    assert primes.divisors(220) == [1, 2, 4, 5, 10, 11, 20, 22, 44, 55, 110, 220]
+    assert primes.divisors(840) == [1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 14, 15, 20, 21, 24, 28, 30, 35, 40, 42, 56, 60, 70,
+                                    84, 105, 120, 140, 168, 210, 280, 420, 840]

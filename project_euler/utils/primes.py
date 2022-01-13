@@ -1,5 +1,5 @@
 import math
-
+import itertools
 
 def primes_up_to(n):
     # Generates a list of all the primes up to n using the Sieve of Eratosthenes
@@ -51,3 +51,24 @@ def prime_factorization_by_trial_division(n):
     if is_prime(x):
         factors[x] = 1
     return factors
+
+
+def divisors(n):
+    # Returns a list in ascending order of the divisors of an integer n, including n
+
+    # First step is to build a list of all the factors of n, from the prime factorization
+    factors = [1]
+    for factor, power in prime_factorization_by_trial_division(n).items():
+        for _ in range(power):
+            factors.append(factor)
+
+    # The divisors of n are the products of each unique subset
+    # of the factors of n. So we'll iterate through every possible
+    # subset of factors.
+    divisors = {}
+    for subset_size in range(len(factors)):
+        for subset in itertools.combinations(factors, subset_size):
+            if subset not in divisors:
+                divisors[subset] = math.prod(subset)
+
+    return sorted(list(set(divisors.values())))
