@@ -3,7 +3,7 @@
 # What is the 10 001st prime number?
 
 
-from utils import primes
+from utils import number_theory
 
 def problem007():
     # primes_up_to(n) will give us a list X of length m, and so we merely need
@@ -11,8 +11,8 @@ def problem007():
     # with n = 10000 and multiply n by 10 until m is large enough, then index to
     # the desired number
     n = 10000
-    X = primes.primes_up_to(n)
+    X = number_theory.primes_up_to(n)
     while len(X) < 10001:
         n *= 10
-        X = primes.primes_up_to(n)
+        X = number_theory.primes_up_to(n)
     return X[10000]

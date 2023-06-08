@@ -17,7 +17,7 @@
 #
 # What is the value of the first triangle number to have over five hundred divisors?
 
-from utils import primes
+from utils import number_theory
 
 def problem012():
     # to do this we'll rely on 2 key facts:
@@ -29,7 +29,7 @@ def problem012():
     while True:
         nth_triangle_number = int(n * (n+1) / 2)
         n_factors = 1
-        for exponent in primes.prime_factorization_by_trial_division(nth_triangle_number).values():
+        for exponent in number_theory.prime_factorization_by_trial_division(nth_triangle_number).values():
             n_factors *= exponent + 1
         if n_factors > 500:
             return nth_triangle_number

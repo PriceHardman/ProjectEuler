@@ -73,3 +73,9 @@ def test_problem020():
 
 def test_problem021():
     assert problem021.problem021() == 31626
+
+def test_problem022():
+    assert problem022.problem022() == 871198282
+
+def test_problem023():
+    assert problem023.problem023() == 4179871

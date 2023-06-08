@@ -7,12 +7,12 @@
 #
 # Evaluate the sum of all the amicable numbers under 10000.
 
-from utils import primes
+from utils import number_theory
 
 def problem021():
 
     def d(n):
-        return sum(primes.divisors(n)[:-1])
+        return sum(number_theory.divisors(n)[:-1])
 
     d_table = {n: d(n) for n in range(0, 10000)}  # {..., 220: 284, ..., 284: 220, ...}
 

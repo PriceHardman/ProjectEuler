@@ -8,23 +8,7 @@
 # values do not exceed four million, find the sum of the even-valued terms.
 
 import itertools
-
-class FibonacciSequence:
-
-    def __init__(self):
-        self.Fn_2 = 0
-        self.Fn_1 = 1
-        self.Fn = 1
-
-    def __repr__(self):
-        return f"Fibonacci(0,1,...,{self.Fn})"
-
-    def __iter__(self):
-        while True:
-            yield self.Fn
-            self.Fn_2 = self.Fn_1
-            self.Fn_1 = self.Fn
-            self.Fn = self.Fn_1 + self.Fn_2
+from utils.number_theory import FibonacciSequence
 
 
 def problem002():

@@ -2,7 +2,7 @@
 #
 # Find the sum of all the primes below two million.
 
-from utils import primes
+from utils import number_theory
 
 def problem010():
-    return sum(primes.primes_up_to(2_000_000))
+    return sum(number_theory.primes_up_to(2_000_000))

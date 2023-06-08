@@ -1,3 +1,3 @@
 __all__ = [
-    "primes"
+    "number_theory.py"
 ]
