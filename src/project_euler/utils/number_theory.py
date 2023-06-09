@@ -9,9 +9,11 @@ def primes_up_to(n):
     for i in range(2, math.ceil(math.sqrt(n))):
         if candidates[i]:
             j = 0
-            while i*i + j*i <= n:
-                candidates[i*i + j*i] = False
+            multiple = i*i + j*i
+            while multiple <= n:
+                candidates[multiple] = False
                 j += 1
+                multiple += i
     return sorted([i for i in candidates.keys() if candidates[i]])
 
 
