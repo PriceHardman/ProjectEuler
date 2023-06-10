@@ -1,27 +1,21 @@
 from project_euler.utils import number_theory
 
+primes_up_to_100 = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]
+
+def test_sieve_of_eratosthenes():
+    for n in range(100):
+        assert number_theory.sieve_of_erathosthenes(n) == [i for i in primes_up_to_100 if i < n]
+
+def test_optimized_sieve_of_eratosthenes():
+    for n in range(101):
+        assert number_theory.optimized_sieve_of_erathosthenes(n) == [i for i in primes_up_to_100 if i < n]
 
 def test_primes_up_to():
-    assert number_theory.primes_up_to(1) == []
-    assert number_theory.primes_up_to(2) == []
-    assert number_theory.primes_up_to(3) == [2]
-    assert number_theory.primes_up_to(4) == [2, 3]
-    assert number_theory.primes_up_to(5) == [2, 3]
-    assert number_theory.primes_up_to(6) == [2, 3, 5]
-    assert number_theory.primes_up_to(7) == [2, 3, 5]
-    assert number_theory.primes_up_to(8) == [2, 3, 5, 7]
-    assert number_theory.primes_up_to(9) == [2, 3, 5, 7]
-    assert number_theory.primes_up_to(10) == [2, 3, 5, 7]
-    assert number_theory.primes_up_to(20) == [2, 3, 5, 7, 11, 13, 17, 19]
-    assert number_theory.primes_up_to(30) == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
-    assert number_theory.primes_up_to(40) == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37]
-    assert number_theory.primes_up_to(50) == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47]
-    assert number_theory.primes_up_to(100) == [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61,
-                                               67, 71, 73, 79, 83, 89, 97]
+    for n in range(100):
+        assert number_theory.primes_up_to(n) == [i for i in primes_up_to_100 if i < n]
 
 
 def test_is_prime():
-    primes_up_to_100 = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97}
     for i in range(100):
         assert number_theory.is_prime(i) == (i in primes_up_to_100)
 
