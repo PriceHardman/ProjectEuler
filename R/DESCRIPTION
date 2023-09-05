@@ -1,0 +1,21 @@
+Package: EulR
+Title: Project Euler in R
+Version: 0.0.0.9000
+Authors@R: 
+    person("Price", "Hardman", , "PriceHardman@gmail.com", role = c("aut", "cre"))
+Description: Solving https://projecteuler.net/ problems in R.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Imports: 
+    dplyr,
+    purrr,
+    Rcpp,
+    rlang,
+    gmp
+LinkingTo: 
+    Rcpp
