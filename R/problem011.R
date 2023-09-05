@@ -61,12 +61,13 @@ problem011 <- function(){
   largest_found_so_far <- 0
   for(i in 1:20){
     for(j in 1:20){
+      # Get the 4-length slices in each direction, making sure we truncate if we hit a matrix boundary.
       across <- X[i,j:pmin(j+3,20)]
       down <- X[i:pmin(i+3,20),j]
       up_right <- diag(X[i:pmax(i-3,0),j:pmin(j+3,20)])
       down_right <- diag(X[i:pmin(i+3,20),j:pmin(j+3,20)])
 
-      prods <- pmax(prod(across), prod(down), prod(up_right), prod(down_right))
+      prods <- pmax(prod(across), prod(down), prod(up_right), prod(down_right)) # take the largest slice product
       if(prods > largest_found_so_far){
         largest_found_so_far <- prods
       }
