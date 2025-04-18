@@ -101,31 +101,7 @@
 # 20849603980134001723930671666823555245252804609722
 # 53503534226472524250874054075591789781264330331690
 
-def addition(numbers: list[list[int]]) -> list[int]:
-    # Given a list of lists of numbers representing
-    # the digits of the numbers to be summed, calculates
-    # the sum by performing manual "carry" addition
-    # like in school.
-    # This assumes all the digits have the same length.
-
-    carry = 0
-    n_rows, n_cols = len(numbers), len(numbers[0])
-    output = []
-    for col in range(n_cols):
-        column_total = carry # carrying over from previously
-        for row in range(n_rows):
-            column_total += numbers[row][-(col + 1)]
-        (carry, digit) = divmod(column_total, 10)
-        output.append(digit)
-
-    # Handle any extra carry at the end
-    while carry > 0:
-        (carry, digit) = divmod(carry, 10)
-        output.append(digit)
-
-    return output[::-1]  # reversed, so its in natural order
-
-
+from project_euler.utils import big_arithmetic
 
 def main():
     raw_input = """
@@ -234,5 +210,10 @@ def main():
     for line in raw_input.strip().split("\n"):
         numbers.append([int(char) for char in line.strip()])
 
-    first_10_digits = addition(numbers)[:10]
+    total = [0]
+    for number in numbers:
+        total = big_arithmetic.add(total,number)
+
+    first_10_digits = total[:10]
+
     return int("".join(str(i) for i in first_10_digits))
