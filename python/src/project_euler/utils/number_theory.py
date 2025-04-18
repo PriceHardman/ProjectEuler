@@ -129,7 +129,7 @@ def divisors(n):
 
 class FibonacciSequence:
     # Generates an infinite sequence of Fibonacci numbers.
-    # Usage
+    # Usage:
     def __init__(self):
         self.Fn_2 = 0
         self.Fn_1 = 1
