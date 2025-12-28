@@ -1,11 +1,17 @@
-import {range} from 'fp-ts/NonEmptyArray'
+export function range(a: number, b: number): Array<number> {
+    const output = [a]
+    for(let i = a+1; i <= b; i++) {
+        output.push(i)
+    }
+    return output
+}
 
-export function* generateFibonacciNumbers() {
-    // Generator of infinite sequence of fibonacci numbers
+export function* generateFibonacciNumbers(): Generator<number> {
+    // Generates an infinite sequence of fibonacci numbers
     let f2 = 0
     let f1 = 1
     while(true) {
-        let f = f2 + f1
+        const f: number = f2 + f1
         yield f
         f2 = f1
         f1 = f
@@ -16,7 +22,7 @@ export function primesUpTo(n: number): Array<number> {
     // Use the sieve of Eratosthenes to generate an array of primes up to integer n
     
     // Start with a list of n booleans, all set to true except for 0 and 1
-    let A = range(0,n).map(i => true)
+    const A = range(0,n).map(() => true)
     A[0] = false
     A[1] = false
 
@@ -41,7 +47,7 @@ export interface PrimeFactor {
 export function primeFactorization(n: number, precomputed_primes?: number[]): Array<PrimeFactor> {
     // Factors positive integer n into a product of powers of primes n = p1^e1 * p2^e2 ... pi^ei
 
-    let output = Array<PrimeFactor>()
+    const output = Array<PrimeFactor>()
 
     // The largest possible prime factor of any integer n is n (in the case of n itself being prime).
     // We'll decompose n into its prime factors (and their powers) by iterating upwards through all
@@ -49,8 +55,8 @@ export function primeFactorization(n: number, precomputed_primes?: number[]): Ar
     // throwing an error if that isn't sufficient to fully factor n), performing trial division as we go.
     let N = n
     // We'll use a precomputed list of primes if needed
-    let list_of_primes = precomputed_primes !== undefined ? precomputed_primes : primesUpTo(Math.min(n, 1_000_000))
-    for(let p of list_of_primes){
+    const list_of_primes = precomputed_primes !== undefined ? precomputed_primes : primesUpTo(Math.min(n, 1_000_000))
+    for(const p of list_of_primes){
         if(N % p == 0){
             // If p divides N, keep dividing N by p to see how many powers of p divide N. 
             // Once we can't divide any more, record it in the output

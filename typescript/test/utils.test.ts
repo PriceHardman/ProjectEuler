@@ -2,17 +2,17 @@ import * as utils from "../src/utils"
 
 describe('utils', () => {
     test('fibonacciNumbers', () => {
-        let F = utils.generateFibonacciNumbers()
+        const F = utils.generateFibonacciNumbers()
         
-        let expected = [1,2,3,5,8,13,21]
-        let actual = expected.map(() => F.next().value)
+        const expected = [1,2,3,5,8,13,21]
+        const actual = expected.map(() => F.next().value)
         for(let i=0; i < expected.length; i++){
             expect(actual[i]).toEqual(expected[i])
         }
     })
 
     test('primesUpTo', () => {
-        let cases: Array<[number, Array<number>]> = [
+        const cases: Array<[number, Array<number>]> = [
             [1,[]],
             [2, [2]],
             [3, [2,3]],
@@ -27,14 +27,14 @@ describe('utils', () => {
             [100, [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97]]
         ]
 
-        for(let [n, expected] of cases){
-            let actual = utils.primesUpTo(n)
+        for(const [n, expected] of cases){
+            const actual = utils.primesUpTo(n)
             expect(actual).toEqual(expected)
         }
     })
 
     test('primeFactorization', () => {
-        let cases: Array<[number, Array<utils.PrimeFactor>]> = [
+        const cases: Array<[number, Array<utils.PrimeFactor>]> = [
             [2, [{factor: 2, power: 1}]],
             [3, [{factor: 3, power: 1}]],
             [4, [{factor: 2, power: 2}]],
@@ -48,8 +48,8 @@ describe('utils', () => {
             [5558322550, [{factor: 2, power: 1},{factor: 5, power: 2},{factor: 11, power: 3},{factor: 17, power: 4}]],
         ]
 
-        for(let [n, expected] of cases){
-            let actual = utils.primeFactorization(n)
+        for(const [n, expected] of cases){
+            const actual = utils.primeFactorization(n)
             expect(actual).toEqual(expected)
         }
     })
