@@ -1,20 +1,7 @@
-async function sleep(ms: number): Promise<number> {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(ms);
-        }, ms);
-    });
-}
+import * as problem14 from '../src/problems/problem_014'
 
-async function run() {
-    console.log("Starting")
-    const jobs = [sleep(1000), sleep(2000), sleep(3000)]
-    const results = await Promise.all(jobs)
-    console.log("Finished: ", results)
-    return results
-}
-
-console.log(run())
+// With breakpoint for debugging
+console.log(problem14.method2())
 
 
 

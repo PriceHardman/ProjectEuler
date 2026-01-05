@@ -19,12 +19,15 @@ import * as problem016 from "../src/problems/problem_016";
 // TODO: DRY this up with automatic dynamic imports and parameterized benchmarks, if possible
 
 const options = {
-    minSamples: 5,
-    maxTime: 2, // seconds
+    // We don't need crazy accurate benchmarks, just a rough sense of runtime.
+    // Run at least 3 times, no more than 1 second per call hopefully
+    minSamples: 3,
+    initCount: 3,
+    maxTime: 1
 }
 
 suite(
-    'Benchmark Problem Solutions',
+    'Benchmark Problem Solutions. Goal is for each to run in < 1s',
     add('problem 1', () => problem001.main(), options),
     add('problem 2', () => problem002.main(), options),
     add('problem 3', () => problem003.main(), options),
@@ -42,5 +45,10 @@ suite(
     add('problem 15', () => problem015.main(), options),
     add('problem 16', () => problem016.main(), options),
     cycle(),
-    complete(),
+    complete((summary) => {
+        summary.results.forEach((result) => {
+            const meanRuntimeMS = result.details.mean * 1000
+            console.log(`${result.name} average runtime: ${meanRuntimeMS.toFixed(6)}ms`)
+        })
+    }),
 )
